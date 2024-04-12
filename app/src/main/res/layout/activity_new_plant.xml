@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pair_new_plant"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="31dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="339dp"
+        android:layout_height="26dp"
+        android:text="@string/_1_locate_the_pair_button_on_your_new_planter"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="93dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="278dp"
+        android:layout_height="23dp"
+        android:text="@string/_2_press_and_hold_the_button_for_5_seconds"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="119dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="308dp"
+        android:layout_height="26dp"
+        android:text="@string/_3_enter_the_plant_id_below_and_press_pair_plant"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="142dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
