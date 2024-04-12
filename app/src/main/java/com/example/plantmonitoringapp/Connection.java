@@ -35,7 +35,7 @@ public class Connection extends AppCompatActivity {
         Realm.init(mainActivity);
         app = new App(new AppConfiguration.Builder(AppID).build());
 
-        // anonymous login to database
+        // anonymous login to database, login times out after 30mins
         Credentials credentials = Credentials.anonymous();
         app.loginAsync(Credentials.anonymous(), new App.Callback<User>() {
             @Override
