@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
@@ -66,6 +67,9 @@ public class homeActivity extends AppCompatActivity {
                     }
                 });
 
+
+
+
                 /*
                 //Find and return ONE document with plant_type="basil"
                 Document queryFilter = new Document().append("plant_type","basil");
@@ -92,7 +96,16 @@ public class homeActivity extends AppCompatActivity {
                 }); */
             }
         });
+
+        // Floating Action Button onClick method for Add New Plant button
+        FloatingActionButton fabAddPlant = findViewById(R.id.fabAddPlant);
+        fabAddPlant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homeActivity.this, NewPlantActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
-
-
 }

@@ -24,6 +24,7 @@
         <activity
             android:name=".homeActivity"
             android:exported="false" />
+        <activity android:name=".NewPlantActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
