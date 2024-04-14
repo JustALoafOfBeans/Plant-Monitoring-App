@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
-            android:text="HomeBud"
+            android:text="@string/homebud"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="50sp"
             android:textStyle="bold|italic"
@@ -50,7 +50,8 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/accent_leaf" />
+                app:srcCompat="@drawable/accent_leaf"
+                android:contentDescription="@string/accent_leaf" />
 
             <View
                 android:layout_width="0dp"
@@ -73,10 +74,10 @@
             android:fontFamily="sans-serif"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
-            android:text="Love Your Plants"
+            android:text="@string/love_your_plants"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="italic"
             android:typeface="normal" />
 
@@ -85,7 +86,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="right"
+        android:gravity="end"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -94,7 +95,8 @@
             android:layout_width="wrap_content"
             android:layout_height="240dp"
             android:adjustViewBounds="true"
-            app:srcCompat="@drawable/home_image" />
+            app:srcCompat="@drawable/home_image"
+            android:contentDescription="@string/home_image" />
 
     </LinearLayout>
 

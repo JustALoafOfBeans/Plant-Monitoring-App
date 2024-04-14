@@ -1,40 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <View
+        android:id="@+id/topBackground"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/semi_circle"
+        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pair_new_plant"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="31dp" />
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="339dp"
-        android:layout_height="26dp"
-        android:text="@string/_1_locate_the_pair_button_on_your_new_planter"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="93dp" />
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_left"
+            android:contentDescription="@string/back" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="278dp"
-        android:layout_height="23dp"
-        android:text="@string/_2_press_and_hold_the_button_for_5_seconds"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="119dp" />
+        <ImageView
+            android:id="@+id/titleIcon"
+            android:layout_width="84dp"
+            android:layout_height="77dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/plant"
+            android:contentDescription="@string/logo" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="308dp"
-        android:layout_height="26dp"
-        android:text="@string/_3_enter_the_plant_id_below_and_press_pair_plant"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="142dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/header">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pair_new_plant_pot"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_1_locate_the_pair_button_on_your_new_planter_n2_press_and_hold_the_button_for_5_seconds_n3_enter_the_plant_id_below_and_press_pair_plant"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plant_id"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/plantID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/pairPlant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pair_plant" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

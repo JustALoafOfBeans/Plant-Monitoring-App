@@ -4,4 +4,19 @@
     <string name="_1_locate_the_pair_button_on_your_new_planter">1. Locate the Pair Button on your new Planter</string>
     <string name="_2_press_and_hold_the_button_for_5_seconds">2. Press and hold the button for 5 seconds</string>
     <string name="_3_enter_the_plant_id_below_and_press_pair_plant">3. Enter the Plant ID below and press ”Pair Plant”</string>
+    <string name="logo">Logo</string>
+    <string name="welcome_home">Welcome home!</string>
+    <string name="add_new">Add New</string>
+    <string name="plant_2_basil">Plant 2 - Basil</string>
+    <string name="plant_1_monstera">Plant 1 - Monstera</string>
+    <string name="plant_1_needs_attention">! Plant 1 needs attention</string>
+    <string name="_1_locate_the_pair_button_on_your_new_planter_n2_press_and_hold_the_button_for_5_seconds_n3_enter_the_plant_id_below_and_press_pair_plant">1. Locate the Pair Button on your new Planter\n2. Press and hold the button for 5 seconds\n3. Enter the Plant ID below and press \'Pair Plant\'</string>
+    <string name="plant_id">Plant ID</string>
+    <string name="pair_plant">Pair Plant</string>
+    <string name="back">Back</string>
+    <string name="pair_new_plant_pot">Pair New Plant Pot</string>
+    <string name="homebud">HomeBud</string>
+    <string name="love_your_plants">Love Your Plants</string>
+    <string name="accent_leaf">accent leaf</string>
+    <string name="home_image">home image</string>
 </resources>

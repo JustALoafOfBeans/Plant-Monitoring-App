@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="396dp"
-        android:layout_height="784dp"
+        android:layout_width="320dp"
+        android:layout_height="726dp"
         android:gravity="center|top"
         android:orientation="vertical"
         android:paddingLeft="20dp"
@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/logo"
             app:srcCompat="@drawable/plant" />
 
         <TextView
@@ -30,8 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Welcome home!"
-            android:textSize="40dp"
+            android:text="@string/welcome_home"
+            android:textSize="40sp"
             android:textStyle="italic" />
 
         <TextView
@@ -45,8 +46,8 @@
             android:paddingTop="20dp"
             android:paddingRight="10dp"
             android:paddingBottom="20dp"
-            android:text="! Plant 1 needs attention"
-            android:textSize="20dp"
+            android:text="@string/plant_1_needs_attention"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -58,7 +59,7 @@
             android:backgroundTint="@color/brown"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:text="Plant 1 - Monstera"
+            android:text="@string/plant_1_monstera"
             android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -70,18 +71,17 @@
             android:backgroundTint="@color/brown"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:text="Plant 2 - Basil"
+            android:text="@string/plant_2_basil"
             android:textColor="@color/white" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabAddPlant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
             android:layout_margin="16dp"
+            android:contentDescription="@string/add_new"
             android:src="@drawable/ic_add"
-            app:backgroundTint="@color/colorAccent" />
+            app:backgroundTint="@color/green" />
 
     </LinearLayout>
 
