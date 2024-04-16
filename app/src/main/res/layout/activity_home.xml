@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="726dp"
         android:gravity="center|top"
         android:orientation="vertical"
@@ -50,29 +50,11 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/plantButton"
+        <LinearLayout
+            android:id="@+id/buttonLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/brown"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:text="@string/plant_1_monstera"
-            android:textColor="@color/white" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/plantButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="@color/brown"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:text="@string/plant_2_basil"
-            android:textColor="@color/white" />
+            android:orientation="vertical"></LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabAddPlant"
