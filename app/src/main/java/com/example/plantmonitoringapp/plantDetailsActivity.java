@@ -1,14 +1,9 @@
 package com.example.plantmonitoringapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
-import org.w3c.dom.Text;
 
 public class plantDetailsActivity extends AppCompatActivity {
     private String plant_name,type;
@@ -25,7 +20,7 @@ public class plantDetailsActivity extends AppCompatActivity {
             type = extras.getString("type");
         }
 
-        txtv = (TextView) findViewById(R.id.textView);
+        txtv = (TextView) findViewById(R.id.name);
         txtv.setText(plant_name + " ; " + type);
     }
 }
