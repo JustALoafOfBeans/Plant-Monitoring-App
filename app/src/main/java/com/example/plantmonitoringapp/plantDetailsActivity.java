@@ -1,9 +1,15 @@
 package com.example.plantmonitoringapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.bson.Document;
@@ -28,6 +34,7 @@ public class plantDetailsActivity extends AppCompatActivity {
     private Integer light_val,moist_low,moist_high,water_interval;
     private TextView header, water_lvl, humid_lvl;
     private AppCompatButton remove_btn;
+    private ImageButton edit_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +64,69 @@ public class plantDetailsActivity extends AppCompatActivity {
             }
         });
 
-        //todo enable edit button -- open toast and update db
+        // Enable edit button
+        edit_btn = (ImageButton) findViewById(R.id.edit_button);
+        edit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(plantDetailsActivity.this);
+
+                builder.setTitle("Rename plant to");
+                builder.setCancelable(true); // when the user clicks on the outside the Dialog Box then it will close
+                final EditText input = new EditText(plantDetailsActivity.this); //input on alert dialog
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+
+                builder.setPositiveButton("Accept", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    // When the user click yes button then app will close
+                    Log.v("User input",input.getText().toString());
+                    updatePlantInstance(input.getText().toString());
+                });
+                builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    // If user click no then dialog box is canceled.
+                    dialog.cancel();
+                });
+
+                // Create the Alert dialog
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Retrieve plant name and type
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            plant_name = extras.getString("plant_name");
+            type = extras.getString("type");
+        }
+
+        // Set page name with plant name
+        header = (TextView) findViewById(R.id.name);
+        header.setText(plant_name + " (" + type +")");
+    }
+
+    /* Update plant name on activity and in database
+     * Input: String of new name for device
+     * Return: void
+     */
+    private void updatePlantInstance(String new_name) {
+        MongoCollection<Document> collection = Connection.getUserCollection();
+
+        Document old_doc = new Document().append("name",plant_name);
+        Document new_doc = new Document().append("name",new_name).append("plant_type",type);
+        collection.updateOne(old_doc,new_doc).getAsync(result -> {
+            if(result.isSuccess()) {
+                Log.v("Data","Document updated");
+                plant_name = new_name;
+                header.setText(plant_name + " (" + type +")");
+            } else {
+                Log.v("Data","Failed to update");
+            }
+        });
     }
 
     /* Remove the current instance of plant from user database and return to home page
