@@ -82,7 +82,7 @@ public class homeActivity extends AppCompatActivity {
                     Document doc = results.next();
                     // add each document to plant_types array
                     users_plants.put(doc.getString("name"),doc.toJson());
-                    Log.v("Data",doc.toJson());
+                    // Log.v("Data",doc.toJson()); // for debugging
                 }
                 createButtons();
             } else {

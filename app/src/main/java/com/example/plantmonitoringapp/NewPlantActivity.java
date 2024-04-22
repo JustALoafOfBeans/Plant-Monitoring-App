@@ -1,12 +1,19 @@
 package com.example.plantmonitoringapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
+import io.realm.mongodb.App;
 
 public class NewPlantActivity extends AppCompatActivity {
+
+    private AppCompatButton pair_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +29,26 @@ public class NewPlantActivity extends AppCompatActivity {
             }
         });
 
-
-        // Add your code here for the functionality of the NewPlantActivity
-        // For example, you can initialize views, set up listeners, etc.
+        pair_btn = (AppCompatButton) findViewById(R.id.pairPlant);
+        pair_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(NewPlantActivity.this, "Pairing...",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(NewPlantActivity.this, addPlantActivity.class);
+                Thread thread = new Thread() {
+                    @Override
+                    public void run() {
+                        try {
+                            //todo update to be reactive to actual connection success/failure
+                            Thread.sleep(3500);
+                            startActivity(i);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                thread.start();
+            }
+        });
     }
 }

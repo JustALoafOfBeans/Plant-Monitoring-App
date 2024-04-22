@@ -3,7 +3,6 @@ package com.example.plantmonitoringapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -14,12 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.bson.Document;
-import org.bson.json.JsonObject;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import io.realm.mongodb.App;
 import io.realm.mongodb.mongo.iterable.MongoCursor;
 import io.realm.mongodb.RealmResultTask;
 import io.realm.mongodb.mongo.MongoCollection;
@@ -44,7 +40,7 @@ public class plantDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_plant_details);
 
         // Enable remove button
-        remove_btn = (AppCompatButton) findViewById(R.id.remove_btn);
+        remove_btn = (AppCompatButton) findViewById(R.id.add_btn);
         remove_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,7 +107,7 @@ public class plantDetailsActivity extends AppCompatActivity {
         }
 
         // Set page name with plant name
-        header = (TextView) findViewById(R.id.name);
+        header = (TextView) findViewById(R.id.addNewPlant);
         header.setText(plant_name + " (" + type.replace("_"," ") +")");
 
         getData();

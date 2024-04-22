@@ -35,7 +35,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/addNewPlant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -117,7 +117,7 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/remove_btn"
+                android:id="@+id/add_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/circle_button_background"
