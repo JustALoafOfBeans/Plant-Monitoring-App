@@ -44,10 +44,6 @@ public class homeActivity extends AppCompatActivity {
         //Instantiate items
         btnLayout = (LinearLayout) findViewById(R.id.buttonLayout);
 
-        //todo update everytime activity is returned to -- maybe onResume?
-        // Dynamically render buttons
-        getData();
-
         // Floating Action Button onClick method for Add New Plant button
         FloatingActionButton fabAddPlant = findViewById(R.id.fabAddPlant);
         fabAddPlant.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +53,20 @@ public class homeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    /* Create buttons dynamically every time activity is opened
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        //clear layout and dictionary of buttons
+        users_plants.clear();
+        btnLayout.removeAllViews();
+
+        // Dynamically render buttons
+        getData();
     }
 
     private void getData() {

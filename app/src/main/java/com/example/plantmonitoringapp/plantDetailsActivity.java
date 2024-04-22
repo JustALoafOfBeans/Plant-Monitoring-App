@@ -63,14 +63,16 @@ public class plantDetailsActivity extends AppCompatActivity {
     /* Remove the current instance of plant from user database and return to home page
      */
     private void removePlantInstance() {
-        //Insert a document with data {data:Find is working, myid:1234}
-        //.append format ("field name","data in field")
         MongoCollection<Document> collection = Connection.getUserCollection();
+
         Document doc = new Document().append("name",plant_name);
         collection.deleteOne(doc).getAsync(result -> {
             if(result.isSuccess()) {
                 Log.v("Data","Document removed");
-                //todo automatically return to home activity
+
+                // Return to home activity
+                Intent intent = new Intent(plantDetailsActivity.this, homeActivity.class);
+                startActivity(intent);
             } else {
                 Log.v("Data","Failed to remove");
             }
