@@ -43,20 +43,6 @@ public class plantDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_details);
 
-        // Retrieve plant name and type
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            plant_name = extras.getString("plant_name");
-            type = extras.getString("type");
-        }
-
-        // Set page name with plant name
-        header = (TextView) findViewById(R.id.name);
-        header.setText(plant_name + " (" + type +")");
-
-        // Update page values
-        getData();
-
         // Enable remove button
         remove_btn = (AppCompatButton) findViewById(R.id.remove_btn);
         remove_btn.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +82,8 @@ public class plantDetailsActivity extends AppCompatActivity {
         });
     }
 
+    /* Pull plant details every time activity is opened
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -108,7 +96,7 @@ public class plantDetailsActivity extends AppCompatActivity {
 
         // Set page name with plant name
         header = (TextView) findViewById(R.id.name);
-        header.setText(plant_name + " (" + type +")");
+        header.setText(plant_name + " (" + type.replace("_"," ") +")");
 
         getData();
     }
