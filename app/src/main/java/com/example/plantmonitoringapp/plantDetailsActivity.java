@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.bson.Document;
@@ -35,6 +36,7 @@ public class plantDetailsActivity extends AppCompatActivity {
     private TextView header, water_lvl, humid_lvl;
     private AppCompatButton remove_btn;
     private ImageButton edit_btn;
+    private ImageView plant_img;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +109,8 @@ public class plantDetailsActivity extends AppCompatActivity {
         // Set page name with plant name
         header = (TextView) findViewById(R.id.name);
         header.setText(plant_name + " (" + type +")");
+
+        getData();
     }
 
     /* Update plant name on activity and in database
@@ -208,5 +212,27 @@ public class plantDetailsActivity extends AppCompatActivity {
         }
         // Set what humidity level is
         humid_lvl.setText(curr_moist + "%");
+        // Set image
+        //todo resize images to fit nicely, also find a better way to do this lol
+        plant_img = (ImageView) findViewById(R.id.plant_img);
+        switch (type) {
+            case "basil":
+                plant_img.setBackgroundResource(R.drawable.basil);
+                break;
+            case "green_onion":
+                plant_img.setBackgroundResource(R.drawable.green_onion);
+                break;
+            case "monstera":
+                plant_img.setBackgroundResource(R.drawable.monstera);
+                break;
+            case "parsley":
+                plant_img.setBackgroundResource(R.drawable.parsley);
+                break;
+            case "thyme":
+                plant_img.setBackgroundResource(R.drawable.thyme);
+                break;
+            default:
+                plant_img.setBackgroundResource(R.drawable.plant);
+        }
     }
 }
