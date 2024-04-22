@@ -43,7 +43,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/edit_button"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
@@ -101,8 +101,8 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/remove_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/circle_button_background"

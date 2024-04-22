@@ -44,6 +44,7 @@ public class homeActivity extends AppCompatActivity {
         //Instantiate items
         btnLayout = (LinearLayout) findViewById(R.id.buttonLayout);
 
+        //todo update everytime activity is returned to -- maybe onResume?
         // Dynamically render buttons
         getData();
 
