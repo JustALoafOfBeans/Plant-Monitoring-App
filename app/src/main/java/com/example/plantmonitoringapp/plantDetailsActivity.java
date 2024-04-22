@@ -48,7 +48,23 @@ public class plantDetailsActivity extends AppCompatActivity {
         remove_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removePlantInstance();
+                AlertDialog.Builder builder = new AlertDialog.Builder(plantDetailsActivity.this);
+
+                builder.setTitle("Permanently remove plant?");
+                builder.setCancelable(true); // when the user clicks on the outside the Dialog Box then it will close
+
+                builder.setPositiveButton("Remove", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    // When the user click yes button then app will close
+                    removePlantInstance();
+                });
+                builder.setNegativeButton("Cancel", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    // If user click no then dialog box is canceled.
+                    dialog.cancel();
+                });
+
+                // Create the Alert dialog
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 
