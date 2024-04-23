@@ -223,8 +223,15 @@ public class plantDetailsActivity extends AppCompatActivity {
      */
     private void updateValues() {
         //todo connect to arduino and pull values here, temp values for now
-        Boolean need_refill = Boolean.FALSE;
         Random rand = new Random();
+        Integer rand_refill = rand.nextInt(2);
+        Boolean need_refill; //randomly choose TRUE or FALSE with random value
+        Log.v("Rand", String.valueOf(rand_refill));
+        if (rand_refill == 0) {
+            need_refill = Boolean.TRUE;
+        } else {
+            need_refill = Boolean.FALSE;
+        }
         Integer curr_moist = rand.nextInt(71) + 30; //random number between 30 to 100
 
         water_lvl = (TextView) findViewById(R.id.water_level);
