@@ -97,36 +97,45 @@ public class homeActivity extends AppCompatActivity {
         Log.v("Render","Creating buttons...");
         int i = 1;
 
-        for (Map.Entry<String,String> entry : users_plants.entrySet()) {
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(30,20,30,0);
-            AppCompatButton btn = new AppCompatButton(this);
-            btn.setId(i); // set button id with counter
-            btn.setText("Plant " + btn.getId() + " - " + entry.getKey());
+        // Set layout params
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.setMargins(30,20,30,0);
 
-            //Style buttons -- done in program bc dynamically rendered
-            GradientDrawable shape = new GradientDrawable();
-            shape.setShape(GradientDrawable.RECTANGLE);
-            shape.setColor(ContextCompat.getColor(this,R.color.brown));
-            shape.setCornerRadius(20);
-            btn.setBackgroundDrawable(shape);
+        // Handle when user has no plants
+        if (users_plants.size() == 0) {
+            TextView notif = new TextView(this);
+            notif.setText("There are currently no connected plants. Add one by pressing the plus below!");
+            btnLayout.addView(notif,params);
+        } else {
+            for (Map.Entry<String, String> entry : users_plants.entrySet()) {
+                AppCompatButton btn = new AppCompatButton(this);
+                btn.setId(i); // set button id with counter
+                btn.setText("Plant " + btn.getId() + " - " + entry.getKey());
 
-            btnLayout.addView(btn,params); //add button
-            plant_btn = ((AppCompatButton) findViewById(i));
-            plant_btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(homeActivity.this, plantDetailsActivity.class);
-                    // Pass plant name and type to next activity
-                    intent.putExtra("plant_name",entry.getKey());
-                    String[] parts = entry.getValue().split("\"");
-                    intent.putExtra("type",parts[parts.length - 2]);
-                    startActivity(intent);
-                }
-            });
-            i++;
+                //Style buttons -- done in program bc dynamically rendered
+                GradientDrawable shape = new GradientDrawable();
+                shape.setShape(GradientDrawable.RECTANGLE);
+                shape.setColor(ContextCompat.getColor(this, R.color.brown));
+                shape.setCornerRadius(20);
+                btn.setBackgroundDrawable(shape);
+
+                btnLayout.addView(btn, params); //add button
+                plant_btn = ((AppCompatButton) findViewById(i));
+                plant_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(homeActivity.this, plantDetailsActivity.class);
+                        // Pass plant name and type to next activity
+                        intent.putExtra("plant_name", entry.getKey());
+                        String[] parts = entry.getValue().split("\"");
+                        intent.putExtra("type", parts[parts.length - 2]);
+                        startActivity(intent);
+                    }
+                });
+                i++;
+            }
         }
     }
 }
