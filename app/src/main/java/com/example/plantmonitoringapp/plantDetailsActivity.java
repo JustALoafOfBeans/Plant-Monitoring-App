@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.bson.Document;
 import org.json.JSONException;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.content.ContextCompat;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class plantDetailsActivity extends AppCompatActivity {
@@ -120,17 +122,42 @@ public class plantDetailsActivity extends AppCompatActivity {
     private void updatePlantInstance(String new_name) {
         MongoCollection<Document> collection = Connection.getUserCollection();
 
-        Document old_doc = new Document().append("name",plant_name);
-        Document new_doc = new Document().append("name",new_name).append("plant_type",type);
-        collection.updateOne(old_doc,new_doc).getAsync(result -> {
-            if(result.isSuccess()) {
-                Log.v("Data","Document updated");
-                plant_name = new_name;
-                header.setText(plant_name + " (" + type +")");
-            } else {
-                Log.v("Data","Failed to update");
-            }
-        });
+        // Check if name unique
+        ArrayList<String> names = new ArrayList<String>(1);
+        if (new_name.isEmpty()) {
+            Toast.makeText(this, "Please enter a name.", Toast.LENGTH_LONG).show();
+        } else {
+            RealmResultTask<MongoCursor<Document>> findTask = collection.find().iterator();
+            findTask.getAsync(task -> {
+                if (task.isSuccess()) {
+                    MongoCursor<Document> results = task.get(); //cursor to iterate through documents
+                    while (results.hasNext()) {
+                        Document doc = results.next();
+                        names.add(doc.getString("name"));
+                        // Log.v("Data",doc.toJson()); // for debugging
+                    }
+                    // Check if name unique
+                    if (names.contains(new_name)) {
+                        Toast.makeText(plantDetailsActivity.this, "Plant names must be unique.", Toast.LENGTH_LONG).show();
+                    } else {
+                        // Update name
+                        Document old_doc = new Document().append("name",plant_name);
+                        Document new_doc = new Document().append("name",new_name).append("plant_type",type);
+                        collection.updateOne(old_doc,new_doc).getAsync(result -> {
+                            if(result.isSuccess()) {
+                                Log.v("Data","Document updated");
+                                plant_name = new_name;
+                                header.setText(plant_name + " (" + type +")");
+                            } else {
+                                Log.v("Data","Failed to update");
+                            }
+                        });
+                    }
+                } else {
+                    Log.v("Data", "Failed to return documents.");
+                }
+            });
+        }
     }
 
     /* Remove the current instance of plant from user database and return to home page
