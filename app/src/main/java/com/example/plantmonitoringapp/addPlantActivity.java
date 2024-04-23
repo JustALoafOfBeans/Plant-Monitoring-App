@@ -182,7 +182,15 @@ public class addPlantActivity extends AppCompatActivity {
                 target_moist.setText(String.valueOf(max_moistJSON));
                 freq.setText(String.valueOf(intervalJSON));
 
-                //todo lock options if using defaults
+                //Lock fields
+                light.setFocusable(false);
+                light.setClickable(false);
+                min_moist.setFocusable(false);
+                min_moist.setClickable(false);
+                target_moist.setFocusable(false);
+                target_moist.setClickable(false);
+                freq.setFocusable(false);
+                freq.setClickable(false);
 
             } catch (JSONException e) {
                 Log.v("Error", e.toString());
