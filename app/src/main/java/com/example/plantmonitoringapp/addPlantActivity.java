@@ -34,7 +34,7 @@ public class addPlantActivity extends AppCompatActivity {
     private Spinner dropdown;
     private AppCompatButton add_btn;
     private EditText name,target_moist,min_moist,freq,light;
-    private String selected;
+    private String selected,empty="Select type";
     Map<String,String> viable_plants = new HashMap<String,String>();
 
     @Override
@@ -83,47 +83,55 @@ public class addPlantActivity extends AppCompatActivity {
 
         // Reset
         viable_plants.clear();
-        viable_plants.put("custom","");
+        viable_plants.put(empty,"");
         getData();
     }
 
     private void addCustomPlant() {
         Log.v("Data","Add custom plant");
         //todo handle empty edittext
+        //todo only allow one custom...?
+        /*
         int new_target_moist = Integer.parseInt(target_moist.getText().toString());
         int new_min_moist = Integer.parseInt(min_moist.getText().toString());
         int new_freq = Integer.parseInt(freq.getText().toString());
-        int new_light = Integer.parseInt(light.getText().toString());
+        int new_light = Integer.parseInt(light.getText().toString()); */
+        Toast.makeText(addPlantActivity.this,"Please select a plant type.",Toast.LENGTH_LONG).show();
     }
 
     private void checkViableName() {
         MongoCollection<Document> collection = Connection.getUserCollection();
         ArrayList<String> names = new ArrayList<String>(1);
         String new_name = name.getText().toString();
-
-        //Place all plant names in array
-        RealmResultTask<MongoCursor<Document>> findTask = collection.find().iterator();
-        findTask.getAsync(task -> {
-            if(task.isSuccess()) {
-                MongoCursor<Document> results = task.get(); //cursor to iterate through documents
-                while(results.hasNext()) {
-                    Document doc = results.next();
-                    names.add(doc.getString("name"));
-                    // Log.v("Data",doc.toJson()); // for debugging
-                }
-                // Check if name unique
-                if (names.contains(new_name)) {
-                    Toast.makeText(addPlantActivity.this,"Plant names must be unique.",Toast.LENGTH_LONG).show();
-                } else if (new_name.equals(selected)){
-                    // if name is unique and custom selected
-                    addCustomPlant();
+        // Check if name field empty
+        if (new_name.isEmpty()) {
+            Toast.makeText(this, "Please enter a name.", Toast.LENGTH_LONG).show();
+        } else {
+            //Place all plant names in array
+            RealmResultTask<MongoCursor<Document>> findTask = collection.find().iterator();
+            findTask.getAsync(task -> {
+                if (task.isSuccess()) {
+                    MongoCursor<Document> results = task.get(); //cursor to iterate through documents
+                    while (results.hasNext()) {
+                        Document doc = results.next();
+                        names.add(doc.getString("name"));
+                        // Log.v("Data",doc.toJson()); // for debugging
+                    }
+                    // Check if name unique
+                    if (names.contains(new_name)) {
+                        Toast.makeText(addPlantActivity.this, "Plant names must be unique.", Toast.LENGTH_LONG).show();
+                    } else if (selected.equals(empty)) {
+                        //todo insert behavoir for custom option here
+                        // for now placeholder is blank option
+                        addCustomPlant();
+                    } else {
+                        addplant();
+                    }
                 } else {
-                    addplant();
+                    Log.v("Data", "Failed to return documents.");
                 }
-            } else {
-                Log.v("Data","Failed to return documents.");
-            }
-        });
+            });
+        }
     }
 
     /* Insert plant to database
@@ -153,7 +161,7 @@ public class addPlantActivity extends AppCompatActivity {
      * Return: void
      */
     private void populateOptions(String selected) {
-        if (selected.equals("custom")) {
+        if (selected.equals(empty)) {
             // Clear options
             light.getText().clear();
             min_moist.getText().clear();
@@ -217,7 +225,7 @@ public class addPlantActivity extends AppCompatActivity {
 
         // Set initial value to "custom"
         ArrayAdapter x = (ArrayAdapter) dropdown.getAdapter();
-        int custom_pos = x.getPosition("custom");
+        int custom_pos = x.getPosition(empty);
         dropdown.setSelection(custom_pos);
     }
 }
