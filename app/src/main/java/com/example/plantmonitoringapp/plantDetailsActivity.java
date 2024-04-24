@@ -266,7 +266,7 @@ public class plantDetailsActivity extends AppCompatActivity {
                 plant_img.setBackgroundResource(R.drawable.thyme);
                 break;
             default:
-                plant_img.setBackgroundResource(R.drawable.generic_plant);
+                plant_img.setBackgroundResource(R.drawable.plant);
         }
     }
 }
