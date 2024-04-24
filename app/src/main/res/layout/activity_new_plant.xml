@@ -55,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pair_new_plant_pot"
                 android:textSize="36sp"
-                android:fontFamily="@font/daniels_handwriting_bold"/>
+                android:fontFamily="@font/daniels_handwriting_bold"
+                android:textColor="@color/black2"/>
 
             <View
                 android:layout_width="match_parent"
@@ -67,7 +68,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/_1_locate_the_pair_button_on_your_new_planter_n2_press_and_hold_the_button_for_5_seconds_n3_enter_the_plant_id_below_and_press_pair_plant"
                 android:fontFamily="@font/raleway_medium"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@color/black2"/>
 
             <View
                 android:layout_width="match_parent"
@@ -79,7 +81,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/plant_id"
                 android:textSize="20sp"
-                android:fontFamily="@font/daniels_handwriting_bold" />
+                android:fontFamily="@font/daniels_handwriting_bold"
+                android:textColor="@color/black2"/>
 
             <View
                 android:layout_width="match_parent"
@@ -101,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pair_plant"
                 android:background="@drawable/rounded_button"
-                />
+                android:textColor="@color/black2"/>
 
 
         </LinearLayout>

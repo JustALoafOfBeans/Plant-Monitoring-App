@@ -35,7 +35,8 @@
             android:layout_marginBottom="30dp"
             android:text="Add New Plant"
             android:textSize="40sp"
-            android:fontFamily="@font/daniels_handwriting_bold"/>
+            android:fontFamily="@font/daniels_handwriting_bold"
+            android:textColor="@color/black2"/>
 
         <EditText
             android:id="@+id/ui_plant_name"
@@ -55,7 +56,8 @@
             android:layout_height="wrap_content"
             android:text="Plant Type"
             android:textSize="20sp"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <Spinner
             android:id="@+id/type_dropdown"
@@ -73,7 +75,8 @@
             android:layout_height="wrap_content"
             android:text="Target Moisture Level"
             android:textSize="20sp"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <EditText
             android:id="@+id/ui_target_moist"
@@ -95,7 +98,8 @@
             android:layout_height="wrap_content"
             android:text="Minimum Moisture Level"
             android:textSize="20sp"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <EditText
             android:id="@+id/ui_min_moist"
@@ -117,7 +121,8 @@
             android:layout_height="wrap_content"
             android:text="Water Frequency"
             android:textSize="20sp"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <EditText
             android:id="@+id/ui_water_interval"
@@ -138,7 +143,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/amount_of_light"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textColor="@color/black2"/>
 
         <EditText
             android:id="@+id/ui_light"
@@ -168,7 +174,8 @@
                 android:background="@drawable/circle_button_background"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="@string/add_plant" />
+                android:text="@string/add_plant"
+                android:textColor="@color/black2"/>
         </LinearLayout>
 
     </LinearLayout>

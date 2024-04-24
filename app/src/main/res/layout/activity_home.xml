@@ -51,7 +51,8 @@
             android:paddingBottom="20dp"
             android:text="@string/plant_1_needs_attention"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black2"/>
 
         <LinearLayout
             android:id="@+id/buttonLayout"

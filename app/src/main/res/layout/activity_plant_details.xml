@@ -54,7 +54,7 @@
             android:textSize="40sp"
             android:textStyle="italic"
             android:fontFamily="@font/daniels_handwriting_bold"
-            />
+            android:textColor="@color/black2"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,7 +90,8 @@
             android:text="Current Water Level:"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <TextView
             android:id="@+id/water_level"
@@ -99,7 +100,8 @@
             android:gravity="center"
             android:text="GOOD"
             android:textSize="20sp"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <Space
             android:layout_width="match_parent"
@@ -111,7 +113,8 @@
             android:text="Current Soil Moisture Level:"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <TextView
             android:id="@+id/humid_lvl"
@@ -120,7 +123,8 @@
             android:gravity="center"
             android:text="TextView"
             android:textSize="20sp"
-            android:fontFamily="@font/raleway_medium"/>
+            android:fontFamily="@font/raleway_medium"
+            android:textColor="@color/black2"/>
 
         <Space
             android:layout_width="match_parent"
@@ -139,7 +143,8 @@
                 android:background="@drawable/circle_button_background"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Remove Plant" />
+                android:text="Remove Plant"
+                android:textColor="@color/black2"/>
         </LinearLayout>
 
     </LinearLayout>
