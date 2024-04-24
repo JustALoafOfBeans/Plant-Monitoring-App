@@ -35,7 +35,8 @@
             android:text="@string/welcome_home"
             android:textSize="40sp"
             android:textStyle="italic"
-            android:fontFamily="@font/daniels_handwriting_bold" />
+            android:fontFamily="@font/daniels_handwriting_bold"
+            android:textColor="@color/black2"/>
 
         <TextView
             android:id="@+id/notification_bar"
