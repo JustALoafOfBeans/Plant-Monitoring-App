@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/off_white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,6 +12,7 @@
         android:orientation="vertical"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:paddingTop="30dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
@@ -20,9 +22,13 @@
             android:layout_height="50dp"
             app:srcCompat="@drawable/accent_leaf" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="220dp"
             android:gravity="right"
             android:orientation="horizontal">
 
@@ -34,6 +40,10 @@
                 android:adjustViewBounds="true" />
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
         <TextView
             android:id="@+id/addNewPlant"
             android:layout_width="wrap_content"
@@ -42,7 +52,9 @@
             android:editable="false"
             android:text="Header"
             android:textSize="40sp"
-            android:textStyle="bold|italic" />
+            android:textStyle="italic"
+            android:fontFamily="@font/daniels_handwriting_bold"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,7 +89,8 @@
             android:layout_height="wrap_content"
             android:text="Current Water Level:"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/raleway_medium"/>
 
         <TextView
             android:id="@+id/water_level"
@@ -85,7 +98,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="GOOD"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/raleway_medium"/>
 
         <Space
             android:layout_width="match_parent"
@@ -96,7 +110,8 @@
             android:layout_height="wrap_content"
             android:text="Current Soil Moisture Level:"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/raleway_medium"/>
 
         <TextView
             android:id="@+id/humid_lvl"
@@ -104,7 +119,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="TextView"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/raleway_medium"/>
 
         <Space
             android:layout_width="match_parent"

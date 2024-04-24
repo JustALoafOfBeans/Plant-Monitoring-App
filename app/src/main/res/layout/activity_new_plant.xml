@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/off_white">
 
     <View
         android:id="@+id/topBackground"
@@ -44,26 +45,45 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/pair_new_plant_pot"
-                android:textSize="24sp" />
+                android:textSize="36sp"
+                android:fontFamily="@font/daniels_handwriting_bold"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
             <TextView
                 android:id="@+id/instructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_1_locate_the_pair_button_on_your_new_planter_n2_press_and_hold_the_button_for_5_seconds_n3_enter_the_plant_id_below_and_press_pair_plant"
+                android:fontFamily="@font/raleway_medium"
                 android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
             <TextView
                 android:id="@+id/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/plant_id"
-                android:textSize="16sp" />
+                android:textSize="20sp"
+                android:fontFamily="@font/daniels_handwriting_bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
 
             <EditText
                 android:id="@+id/plantID"
@@ -71,11 +91,17 @@
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pairPlant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pair_plant" />
+                android:text="@string/pair_plant"
+                android:background="@drawable/rounded_button"
+                />
 
 
         </LinearLayout>

@@ -6,4 +6,10 @@
     <color name="yellow">#F5E1B9</color>
     <color name="brown">#8E7D69</color>
     <color name="red">#D73A30</color>
+
+    <color name="dark_green">#3B4525</color>
+    <color name="dark_brown">#332314</color>
+    <color name="off_white">#FCF7EE</color>
+    <color name="green_translucent">#C8909F43</color>
+
 </resources>

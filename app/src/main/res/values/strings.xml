@@ -19,4 +19,8 @@
     <string name="love_your_plants">Love Your Plants</string>
     <string name="accent_leaf">accent leaf</string>
     <string name="home_image">home image</string>
+    <string name="add_plant">Add Plant</string>
+    <string name="hours_per_day">Hours per day</string>
+    <string name="amount_of_light">Amount of Light</string>
+    <string name="max_days_between_waters">Max Days Between Waters</string>
 </resources>

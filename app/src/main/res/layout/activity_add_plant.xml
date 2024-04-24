@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:background="@color/off_white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,6 +15,11 @@
         android:paddingRight="20dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
 
         <ImageView
             android:id="@+id/imageView"
@@ -29,7 +35,7 @@
             android:layout_marginBottom="30dp"
             android:text="Add New Plant"
             android:textSize="40sp"
-            android:textStyle="italic" />
+            android:fontFamily="@font/daniels_handwriting_bold"/>
 
         <EditText
             android:id="@+id/ui_plant_name"
@@ -39,15 +45,17 @@
             android:ems="10"
             android:hint="Plant Name"
             android:inputType="text"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:fontFamily="@font/raleway_medium"/>
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Plant Type"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/raleway_medium"/>
 
         <Spinner
             android:id="@+id/type_dropdown"
@@ -55,12 +63,17 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Target Moisture Level"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/raleway_medium"/>
 
         <EditText
             android:id="@+id/ui_target_moist"
@@ -69,14 +82,20 @@
             android:ems="10"
             android:hint="x%"
             android:inputType="text"
-            android:textSize="20sp" />
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_medium"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Minimum Moisture Level"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/raleway_medium"/>
 
         <EditText
             android:id="@+id/ui_min_moist"
@@ -85,29 +104,40 @@
             android:ems="10"
             android:hint="x%"
             android:inputType="text"
-            android:textSize="20sp" />
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_medium"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Water Frequency"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/raleway_medium"/>
 
         <EditText
             android:id="@+id/ui_water_interval"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Max Days Between Waters"
+            android:hint="@string/max_days_between_waters"
             android:inputType="text"
-            android:textSize="20sp" />
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_medium"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Amount of Light"
+            android:text="@string/amount_of_light"
             android:textSize="20sp" />
 
         <EditText
@@ -115,15 +145,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Hours per day"
+            android:hint="@string/hours_per_day"
             android:inputType="text"
-            android:textSize="20sp" />
+            android:textSize="16sp"
+            android:fontFamily="@font/raleway_medium"/>
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="20dp">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/add_btn"
@@ -133,7 +168,7 @@
                 android:background="@drawable/circle_button_background"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Add Plant" />
+                android:text="@string/add_plant" />
         </LinearLayout>
 
     </LinearLayout>
